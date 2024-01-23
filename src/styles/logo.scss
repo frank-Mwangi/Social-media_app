@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+  // border: 2px solid purple;
+  flex: 1;
+  font-size: 12px;
+  gap: 10px;
+  img {
+    height: 22px;
+    width: 22px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+}

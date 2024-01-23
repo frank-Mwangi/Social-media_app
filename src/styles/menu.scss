@@ -1,0 +1,36 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  //border: 2px solid red;
+  margin-left: 10px;
+  h2 {
+    color: gray;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .menuitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .menuitemleft {
+    display: flex;
+    align-items: center;
+    //border: 2px solid blue;
+    gap: 10px;
+    color: gray;
+    font-weight: bold;
+    img {
+      height: 50px;
+      width: 40px;
+    }
+  }
+  .menuItemRight {
+    display: flex;
+    //border: 2px solid black;
+    width: 20px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
