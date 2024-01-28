@@ -9,7 +9,7 @@ import menu from "../assets/menu.png";
 import logo from "../assets/logo.png";
 import message from "../assets/message.png";
 import notification from "../assets/notification.png";
-import profilePic from "../assets/nature.jpg";
+import profilePic from "../assets/avatar.png";
 import chevron from "../assets/chevron-down.png";
 
 const Navbar = () => {

@@ -1,0 +1,16 @@
+.header {
+  background-image: url("../assets/HeaderImg.jpg");
+  height: 60%;
+  display: flex;
+  justify-content: flex-end;
+  .edit {
+    background-color: white;
+    height: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}

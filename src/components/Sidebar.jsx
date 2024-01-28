@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/sidebar.scss";
-import avi from "../assets/nature.jpg";
+import avi from "../assets/avatar.png";
 import timelineIcon from "../assets/timeline.png";
 import friendsIcon from "../assets/friends.png";
 import groupsIcon from "../assets/groups.png";
@@ -79,7 +79,7 @@ const Sidebar = () => {
                 <div className="menuitemleft">
                   <img src={item.icon} alt={item.title} />
                   {item.value ? (
-                    <span style={{ color: "#2563EB" }}> {item.title}</span>
+                    <span style={{ color: "#ED4F9D" }}> {item.title}</span>
                   ) : (
                     <span className="noNotifStyle">{item.title}</span>
                   )}
@@ -90,9 +90,9 @@ const Sidebar = () => {
                       {item.value && (
                         <span
                           style={{
-                            color: "#2563EB",
-                            backgroundColor: "#EFF6FF",
-                            borderRadius: "5px",
+                            color: "white",
+                            backgroundColor: "#ED4F9D",
+                            borderRadius: "50%",
                             padding: "3px 5px",
                           }}
                         >
