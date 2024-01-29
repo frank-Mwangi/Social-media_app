@@ -1,13 +1,15 @@
 .complete-profile {
   background-color: #fff;
-  //border: 2px solid green;
-  height: 20%;
+  //border: 2px solid blue;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  //align-items: center;
   border-radius: 10px;
   font-weight: bold;
+  gap: 10px;
+  padding: 10px;
   .input {
     display: flex;
     gap: 10px;
