@@ -2,6 +2,7 @@ import React from "react";
 import group1 from "../assets/Group1.png";
 import group2 from "../assets/Group2.png";
 import group3 from "../assets/Group3.png";
+import "../styles/groups.scss";
 
 const Groups = () => {
   const groups = [

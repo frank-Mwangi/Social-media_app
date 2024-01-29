@@ -1,0 +1,21 @@
+.main {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  //border: 2px solid salmon;
+  height: 60%;
+  gap: 5%;
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 2px solid aqua;
+  }
+  .timeline {
+    border: 2px solid pink;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+  }
+}
