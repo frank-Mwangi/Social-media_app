@@ -4,6 +4,7 @@
   // border: 2px solid black;
   max-height: 10vw;
   width: 100%;
+  margin-bottom: 20px;
   .logo {
     display: flex;
     flex-direction: row;
@@ -40,10 +41,11 @@
     align-items: center;
     margin-right: 20px;
     justify-content: space-around;
-    // border: 2px solid salmon;
+    //border: 2px solid salmon;
     gap: 20px;
+    width: 100px;
     img {
-      height: 20px;
+      height: 15px;
     }
     .profilePic {
       height: 40px;

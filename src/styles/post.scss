@@ -1,8 +1,10 @@
 .post {
   display: flex;
   flex-direction: column;
-  //border: 2px solid green;
+  border-radius: 10px;
+  background-color: #fff;
   padding-right: 10px;
+  margin-top: 20px;
   .handle {
     display: flex;
     align-items: center;
