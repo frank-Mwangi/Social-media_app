@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/Pages.scss";
-import websiteIcon from "../assets/website.png";
-import mobileIcon from "../assets/mobile.png";
-import productIcon from "../assets/product.png";
+import websiteIcon from "../assets/websitedesign.png";
+import mobileIcon from "../assets/mobiledesign.png";
+import productIcon from "../assets/productdesign.png";
 
 const Pages = () => {
   const shortcuts = [

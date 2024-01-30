@@ -7,9 +7,9 @@ import groupsIcon from "../assets/groups.png";
 import videosIcon from "../assets/videos.png";
 import photosIcon from "../assets/photos.png";
 import eventsIcon from "../assets/events.png";
-import websiteIcon from "../assets/website.png";
-import mobileIcon from "../assets/mobile.png";
-import productIcon from "../assets/product.png";
+import websiteIcon from "../assets/websitedesign.png";
+import mobileIcon from "../assets/mobiledesign.png";
+import productIcon from "../assets/productdesign.png";
 
 const Sidebar = () => {
   const menuItems = [
