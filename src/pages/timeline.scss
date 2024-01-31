@@ -1,0 +1,21 @@
+.timeline {
+  display: flex;
+  flex: 5.7;
+  flex-direction: column;
+  //border: 2px solid red;
+  margin: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 10px;
+  overflow-y: scroll;
+  .stories-wrap {
+    display: flex;
+    flex-direction: column;
+    .stories {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

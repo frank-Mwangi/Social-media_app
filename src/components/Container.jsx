@@ -5,6 +5,7 @@ import MainContent from "./MainContent";
 import "../styles/container.scss";
 import Rightbar from "./Rightbar";
 import Timeline from "../pages/Timeline";
+import Friends from "../pages/Friends";
 
 const Container = () => {
   return (
@@ -14,6 +15,7 @@ const Container = () => {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/timeline" element={<Timeline />} />
+          <Route path="/friends" element={<Friends />} />
         </Routes>
 
         <Rightbar />

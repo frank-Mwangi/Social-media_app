@@ -9,6 +9,7 @@ import avatar6 from "../assets/Avatar (7).png";
 import avatar7 from "../assets/Avatar (8).png";
 import NewPost from "../components/NewPost";
 import Post from "../components/Post";
+import "./timeline.scss";
 
 const Timeline = () => {
   const stories = [
@@ -51,16 +52,19 @@ const Timeline = () => {
   ];
   return (
     <div className="timeline">
-      <div className="stories">
-        {stories &&
-          stories.map((story, index) => {
-            return (
-              <div className="story" key={index}>
-                <img src={story.icon} alt="no-icon" />
-                <p>{story.handle}</p>
-              </div>
-            );
-          })}
+      <div className="stories-wrap">
+        <h1>Your Timeline</h1>
+        <div className="stories">
+          {stories &&
+            stories.map((story, index) => {
+              return (
+                <div className="story" key={index}>
+                  <img src={story.icon} alt="no-icon" />
+                  <p>{story.handle}</p>
+                </div>
+              );
+            })}
+        </div>
       </div>
       <NewPost />
       <Post />

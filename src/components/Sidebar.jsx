@@ -33,15 +33,15 @@ const Sidebar = () => {
           </Link>
           <div className="menuItemRight"></div>
         </div>
-
-        <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={friendsIcon} alt="Friends" />
-            <span>Friends</span>
+        <Link to="/friends">
+          <div className="menuitem">
+            <div className="menuitemleft">
+              <img src={friendsIcon} alt="Friends" />
+              <span>Friends</span>
+            </div>
+            <div className="menuItemRight"></div>
           </div>
-          <div className="menuItemRight"></div>
-        </div>
-
+        </Link>
         <div className="menuitem">
           <div className="menuitemleft">
             <img src={groupsIcon} alt="Groups" />
