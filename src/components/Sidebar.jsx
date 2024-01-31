@@ -10,95 +10,9 @@ import eventsIcon from "../assets/events.png";
 import websiteIcon from "../assets/websitedesign.png";
 import mobileIcon from "../assets/mobiledesign.png";
 import productIcon from "../assets/productdesign.png";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  // const menuItems = [
-  //   {
-  //     id: 0,
-  //     icon: timelineIcon,
-  //     title: "Timeline",
-  //   },
-  //   {
-  //     id: 1,
-  //     icon: friendsIcon,
-  //     title: "Friends",
-  //   },
-  //   {
-  //     id: 2,
-  //     icon: groupsIcon,
-  //     title: "Groups",
-  //   },
-  //   {
-  //     id: 3,
-  //     icon: videosIcon,
-  //     title: "Videos",
-  //   },
-  //   {
-  //     id: 4,
-  //     icon: photosIcon,
-  //     title: "Photos",
-  //   },
-  //   {
-  //     id: 5,
-  //     icon: eventsIcon,
-  //     title: "Events",
-  //     value: 10,
-  //   },
-  // ];
-
-  // return (
-  //   <div className="sidebar">
-  //     <div className="avatar">
-  //       <img src={avi} alt="no=avi" />
-  //       <div className="details">
-  //         <h4>Kaizer Soze</h4>
-  //         <p>@K.soze</p>
-  //       </div>
-  //     </div>
-  //     <div className="menu">
-  //       <h2>MENU</h2>
-  //       {menuItems &&
-  //         menuItems.map((item, index) => {
-  //           return (
-  //             <div className="menuitem" key={index}>
-  //               <div className="menuitemleft">
-  //                 <img src={item.icon} alt={item.title} />
-  //                 {item.value ? (
-  //                   <span style={{ color: "#ED4F9D" }}> {item.title}</span>
-  //                 ) : (
-  //                   <span className="noNotifStyle">{item.title}</span>
-  //                 )}
-  //               </div>
-  //               <div className="menuItemRight">
-  //                 {item.value ? (
-  //                   <>
-  //                     {item.value && (
-  //                       <span
-  //                         style={{
-  //                           color: "white",
-  //                           backgroundColor: "#ED4F9D",
-  //                           borderRadius: "50%",
-  //                           padding: "3px 5px",
-  //                         }}
-  //                       >
-  //                         {item.value}
-  //                       </span>
-  //                     )}
-  //                   </>
-  //                 ) : (
-  //                   <>
-  //                     {item.value && (
-  //                       <span className="value">{item.value}</span>
-  //                     )}
-  //                   </>
-  //                 )}
-  //               </div>
-  //             </div>
-  //           );
-  //         })}
-  //     </div>
-  //     {/* <Menu /> */}
-
   return (
     <div className="sidebar">
       <div className="avatar">
@@ -111,10 +25,12 @@ const Sidebar = () => {
       <div className="menu">
         <h2>MENU</h2>
         <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={timelineIcon} alt="Timeline" />
-            <span>Timeline</span>
-          </div>
+          <Link to="/timeline">
+            <div className="menuitemleft">
+              <img src={timelineIcon} alt="Timeline" />
+              <span>Timeline</span>
+            </div>
+          </Link>
           <div className="menuItemRight"></div>
         </div>
 
