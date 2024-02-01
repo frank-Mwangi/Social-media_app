@@ -1,9 +1,8 @@
 .logincontainer {
-  height: 100vh;
+  height: 97vh;
   padding: 0;
   margin: 0;
-  //width: 40vw;
-  //border: 2px solid gray;
+  overflow: hide;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,11 +23,14 @@
     input {
       display: flex;
       justify-content: center;
-      padding: 10px;
       height: 30px;
       border-radius: 10px;
     }
-    input [type="submit"] {
+    p {
+      color: white;
+      font-weight: bold;
+    }
+    .submit {
       border: 2px solid aqua;
       margin-top: 40px;
       background-color: aqua;

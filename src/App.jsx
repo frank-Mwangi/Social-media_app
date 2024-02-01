@@ -8,8 +8,6 @@ import { Route, Routes } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
 
-//import background from "./assets/Register-bg.jpg";
-
 const App = () => {
   const navigate = useNavigate();
   const schema = yup.object().shape({
@@ -124,6 +122,7 @@ const App = () => {
             </div>
           }
         />
+
         <Route
           path="/*"
           element={

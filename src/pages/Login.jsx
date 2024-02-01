@@ -46,7 +46,7 @@ const Login = () => {
           />
           <p>{errors.username?.message}</p>
           <input
-            type="text"
+            type="password"
             name="password"
             id="password"
             placeholder="Enter your password..."

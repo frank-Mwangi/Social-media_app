@@ -8,23 +8,32 @@ import Timeline from "../pages/Timeline";
 import Friends from "../pages/Friends";
 import Navbar from "./Navbar";
 import Login from "../pages/Login";
+import { useState, createContext } from "react";
+import Notifications from "../pages/Notifications";
 
+export const notifContext = createContext();
 const Container = () => {
+  const [notificationClicked, setNotificationClicked] = useState(false);
   return (
-    <div className="wholepage">
-      <Navbar />
-      <div className="container">
-        <Sidebar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/home/" element={<MainContent />} />
-          <Route path="/timeline" element={<Timeline />} />
-          <Route path="/friends" element={<Friends />} />
-        </Routes>
+    <notifContext.Provider
+      value={{ notificationClicked, setNotificationClicked }}
+    >
+      <div className="wholepage">
+        <Navbar />
+        <div className="container">
+          <Sidebar />
+          <Routes>
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home/" element={<MainContent />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/friends" element={<Friends />} />
+          </Routes>
 
-        <Rightbar />
+          <Rightbar />
+        </div>
       </div>
-    </div>
+    </notifContext.Provider>
   );
 };
 
