@@ -1,8 +1,18 @@
-.container {
+.wholepage {
+  //font-family: Inter, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 100vw;
-  height: 100vh;
-  background-color: #f8fafc;
-  //border: 2px solid red;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    height: 100vh;
+    background-color: #f8fafc;
+    //border: 2px solid red;
+  }
 }

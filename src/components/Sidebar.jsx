@@ -17,10 +17,12 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="avatar">
         <img src={avi} alt="no=avi" />
-        <div className="details">
-          <h4>Kaizer Soze</h4>
-          <p>@K.soze</p>
-        </div>
+        <Link to="/home">
+          <div className="details">
+            <h4>Kaizer Soze</h4>
+            <p>@K.soze</p>
+          </div>
+        </Link>
       </div>
       <div className="menu">
         <h2>MENU</h2>
