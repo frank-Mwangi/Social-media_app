@@ -11,23 +11,31 @@ import message from "../assets/message.png";
 import notification from "../assets/notification.png";
 import profilePic from "../assets/avatar.png";
 import chevron from "../assets/chevron-down.png";
-import { notifContext } from "./Container";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+//import { notifContext } from "./Container";
+//import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Notifications from "../pages/Notifications";
 
 const Navbar = () => {
-  const { notificationClicked, setNotificationClicked } =
-    useContext(notifContext);
-  const navigate = useNavigate();
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleClickNotif = () => {
-    setNotificationClicked(!notificationClicked);
-    if (notificationClicked) {
-      navigate("/notifications");
-    } else {
-      navigate("/home");
-    }
+    setShowNotification(!showNotification);
   };
+
+  // const { notificationClicked, setNotificationClicked } =
+  //   useContext(notifContext);
+  // const navigate = useNavigate();
+
+  // const handleClickNotif = () => {
+  //   setNotificationClicked(!notificationClicked);
+  //   notificationClicked ? navigate("/notifications") : navigate("/*");
+
+  //   //else {
+  //   //     navigate("/home");
+  //   //   }
+  // };
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -43,6 +51,7 @@ const Navbar = () => {
           <img src={message} alt="no-icon" />
           <span onClick={handleClickNotif}>
             <img src={notification} alt="no-icon" />
+            {showNotification && <Notifications closeNote={handleClickNotif} />}
           </span>
           <img src={profilePic} alt="no-icon" className="profilePic" />
           <img src={chevron} alt="no-icon" />

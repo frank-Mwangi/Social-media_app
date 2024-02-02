@@ -8,7 +8,7 @@ import avatar5 from "../assets/Avatar (7).png";
 import avatar6 from "../assets/Avatar (8).png";
 import "./Notifications.scss";
 
-const Notifications = () => {
+const Notifications = ({ closeNote }) => {
   const notifs = [
     {
       icon: avatar0,
@@ -51,6 +51,7 @@ const Notifications = () => {
     <div className="notifs-container">
       <div className="notifs">
         <h2>Notification</h2>
+        <button onClick={closeNote}>X</button>
         <div className="buttons">
           <span>All Notifications</span>
           <span>Unread</span>
