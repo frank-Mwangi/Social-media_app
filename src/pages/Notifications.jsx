@@ -6,6 +6,7 @@ import avatar3 from "../assets/Avatar (5).png";
 import avatar4 from "../assets/Avatar (6).png";
 import avatar5 from "../assets/Avatar (7).png";
 import avatar6 from "../assets/Avatar (8).png";
+import "./Notifications.scss";
 
 const Notifications = () => {
   const notifs = [
@@ -47,23 +48,25 @@ const Notifications = () => {
   ];
 
   return (
-    <div className="notifs">
-      <h2>Notification</h2>
-      <div className="buttons">
-        <span>All Notifications</span>
-        <span>Unread</span>
-      </div>
+    <div className="notifs-container">
+      <div className="notifs">
+        <h2>Notification</h2>
+        <div className="buttons">
+          <span>All Notifications</span>
+          <span>Unread</span>
+        </div>
 
-      {notifs &&
-        notifs.map((item, index) => (
-          <div className="notif" key={index}>
-            <img src={item.icon} alt="no-icon" />
-            <div className="notif-details">
-              <h4>{item.name}</h4>
-              <p>{item.message}</p>
+        {notifs &&
+          notifs.map((item, index) => (
+            <div className="notif" key={index}>
+              <img src={item.icon} alt="no-icon" />
+              <div className="notif-details">
+                <h4>{item.name}</h4>
+                <p>{item.message}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };

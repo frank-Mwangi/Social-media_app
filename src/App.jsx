@@ -111,6 +111,14 @@ const App = () => {
                   color: "white",
                 }}
               />
+              <p>
+                Already have an account?
+                <span>
+                  {" "}
+                  <a href="/login"> Login </a>
+                </span>
+                instead.
+              </p>
             </form>
           }
         />
