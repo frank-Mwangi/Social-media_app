@@ -8,7 +8,7 @@
   z-index: 1;
   //background: none;
   //background-color: black;
-  opacity: 80%;
+  //opacity: 80%;
 
   .notifs {
     background-color: white;
@@ -23,10 +23,27 @@
     justify-content: center;
 
     border-radius: 10px;
-    h2 {
-      margin-top: 200px;
-      margin-left: 20px;
-      border-bottom: 1px solid black;
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        margin-top: 200px;
+        margin-left: 20px;
+        border-bottom: 1px solid black;
+      }
+      button {
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin-top: 200px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+      }
     }
     .buttons {
       display: flex;

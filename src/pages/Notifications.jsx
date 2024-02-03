@@ -50,8 +50,10 @@ const Notifications = ({ closeNote }) => {
   return (
     <div className="notifs-container">
       <div className="notifs">
-        <h2>Notification</h2>
-        <button onClick={closeNote}>X</button>
+        <div className="heading">
+          <h2>Notification</h2>
+          <button onClick={closeNote}>X</button>
+        </div>
         <div className="buttons">
           <span>All Notifications</span>
           <span>Unread</span>
