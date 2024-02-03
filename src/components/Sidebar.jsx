@@ -61,10 +61,12 @@ const Sidebar = () => {
         </div>
 
         <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={photosIcon} alt="Photos" />
-            <span>Photos</span>
-          </div>
+          <Link to="/photos">
+            <div className="menuitemleft">
+              <img src={photosIcon} alt="Photos" />
+              <span>Photos</span>
+            </div>
+          </Link>
           <div className="menuItemRight"></div>
         </div>
 
