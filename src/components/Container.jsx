@@ -12,6 +12,7 @@ import { useState, createContext } from "react";
 import Notifications from "../pages/Notifications";
 import Photos from "../pages/Photos";
 import GroupsTop from "../pages/GroupsTop.jsx";
+import Videos from "../pages/Videos.jsx";
 
 export const notifContext = createContext();
 const Container = () => {
@@ -31,6 +32,7 @@ const Container = () => {
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<GroupsTop />} />
+            <Route path="/videos" element={<Videos />} />
             <Route path="/photos" element={<Photos />} />
           </Routes>
 

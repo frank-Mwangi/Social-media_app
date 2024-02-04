@@ -53,14 +53,15 @@ const Sidebar = () => {
             <div className="menuItemRight"></div>
           </div>
         </Link>
-        <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={videosIcon} alt="Videos" />
-            <span>Videos</span>
+        <Link to="/videos">
+          <div className="menuitem">
+            <div className="menuitemleft">
+              <img src={videosIcon} alt="Videos" />
+              <span>Videos</span>
+            </div>
+            <div className="menuItemRight"></div>
           </div>
-          <div className="menuItemRight"></div>
-        </div>
-
+        </Link>
         <div className="menuitem">
           <Link to="/photos">
             <div className="menuitemleft">
