@@ -44,14 +44,15 @@ const Sidebar = () => {
             <div className="menuItemRight"></div>
           </div>
         </Link>
-        <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={groupsIcon} alt="Groups" />
-            <span>Groups</span>
+        <Link to="/groups">
+          <div className="menuitem">
+            <div className="menuitemleft">
+              <img src={groupsIcon} alt="Groups" />
+              <span>Groups</span>
+            </div>
+            <div className="menuItemRight"></div>
           </div>
-          <div className="menuItemRight"></div>
-        </div>
-
+        </Link>
         <div className="menuitem">
           <div className="menuitemleft">
             <img src={videosIcon} alt="Videos" />
