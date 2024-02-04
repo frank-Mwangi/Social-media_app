@@ -13,6 +13,7 @@ import Notifications from "../pages/Notifications";
 import Photos from "../pages/Photos";
 import GroupsTop from "../pages/GroupsTop.jsx";
 import Videos from "../pages/Videos.jsx";
+import Event from "../pages/Event.jsx";
 
 export const notifContext = createContext();
 const Container = () => {
@@ -33,6 +34,7 @@ const Container = () => {
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<GroupsTop />} />
             <Route path="/videos" element={<Videos />} />
+            <Route path="/events" element={<Event />} />
             <Route path="/photos" element={<Photos />} />
           </Routes>
 

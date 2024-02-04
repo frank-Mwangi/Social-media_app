@@ -73,10 +73,12 @@ const Sidebar = () => {
         </div>
 
         <div className="menuitem">
-          <div className="menuitemleft">
-            <img src={eventsIcon} alt="Events" />
-            <span style={{ color: "#ED4F9D" }}> Events</span>
-          </div>
+          <Link to="/events">
+            <div className="menuitemleft">
+              <img src={eventsIcon} alt="Events" />
+              <span style={{ color: "#ED4F9D" }}> Events</span>
+            </div>
+          </Link>
           <div className="menuItemRight">
             <span
               style={{
