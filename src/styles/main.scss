@@ -13,6 +13,14 @@
     justify-content: space-between;
     gap: 10px;
     //border: 2px solid aqua;
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        color: blue;
+      }
+    }
   }
   .timeline {
     //border: 2px solid pink;

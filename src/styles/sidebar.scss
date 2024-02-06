@@ -26,10 +26,13 @@
     .details {
       display: flex;
       flex-direction: column;
-      // border: 2px dotted black;
+      text-decoration: none;
+      //border: 2px dotted black;
       h4 {
+        text-decoration: none;
         margin-bottom: 0;
         font-size: 12px;
+        color: black;
       }
       p {
         margin-top: 0;
@@ -57,11 +60,18 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      //border: 2px solid salmon;
+      text-decoration: none;
     }
+    .menuitem a {
+      text-decoration: none;
+      color: gray;
+      //border: 2px solid blue;
+    }
+
     .menuitemleft {
       display: flex;
       align-items: center;
-      //border: 2px solid blue;
       gap: 10px;
       color: gray;
       font-weight: bold;
@@ -69,11 +79,12 @@
         height: 15px;
         width: 15px;
       }
-      span {
-        border: 2px solid salmon;
-        text-decoration: none;
-        font-size: 12px;
-      }
+      // a {
+      //   text-decoration: none;
+      //   font-size: 12px;
+
+      //   //text-decoration: none;
+      // }
     }
     .menuItemRight {
       display: flex;

@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/maincontent.scss";
 import Hero from "./Hero";
-import Main from "./Main";
+import Profile from "./Profile";
 
 const MainContent = () => {
   return (
     <div className="maincontent">
       <Hero />
-      <Main />
+      <Profile />
     </div>
   );
 };
