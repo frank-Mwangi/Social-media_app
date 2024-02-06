@@ -1,0 +1,14 @@
+.photos {
+  //   display: grid;
+  //   grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  .photo {
+    img {
+      //border: 2px solid black;
+      width: 90px;
+    }
+  }
+}

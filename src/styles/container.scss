@@ -16,4 +16,29 @@
     background-color: #f8fafc;
     //border: 2px solid red;
   }
+  @media screen and (max-width: 768px) {
+    .navbar {
+      //border: 2px solid aqua;
+      .navbody {
+        //border: 2px solid aqua;
+        input {
+          display: none;
+        }
+      }
+    }
+    .sidebar {
+      display: none;
+    }
+    .rightbar {
+      display: none;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      .photos {
+        display: flex;
+        overflow-x: hidden;
+      }
+    }
+  }
 }

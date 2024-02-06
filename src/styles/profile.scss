@@ -5,6 +5,7 @@
   //border: 2px solid salmon;
   height: 60%;
   gap: 5%;
+
   .profile-info {
     border-radius: 10px;
     display: flex;
@@ -12,7 +13,6 @@
     flex: 1;
     justify-content: space-between;
     gap: 10px;
-    //border: 2px solid aqua;
     .buttons {
       display: flex;
       justify-content: space-between;
@@ -28,5 +28,6 @@
     display: flex;
     flex-direction: column;
     flex: 4;
+    overflow-y: visible;
   }
 }

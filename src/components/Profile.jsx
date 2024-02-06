@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/main.scss";
+import "../styles/profile.scss";
 import CompleteProfile from "./CompleteProfile";
 import Intro from "./Intro";
 import NewPost from "./NewPost";

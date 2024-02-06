@@ -10,7 +10,7 @@ import eventsIcon from "../assets/events.png";
 import websiteIcon from "../assets/websitedesign.png";
 import productIcon from "../assets/productdesign.png";
 import mobileIcon from "../assets/mobiledesign.png";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {

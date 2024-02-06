@@ -9,9 +9,9 @@
   .friend {
     margin: 20px;
     padding: 20px;
-    background-color: #f8fafc;
+    background-color: #dcebfa;
     display: flex;
-    width: 25rem;
+    width: 24.5rem;
     flex-direction: column;
     border-radius: 10px;
 
@@ -45,6 +45,10 @@
         color: blue;
         font-weight: bold;
         border: none;
+        &:hover {
+          background-color: blue;
+          color: white;
+        }
       }
     }
   }

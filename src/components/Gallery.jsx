@@ -10,6 +10,7 @@ import photo9 from "../assets/pic9.png";
 import photo10 from "../assets/pic10.png";
 import photo11 from "../assets/pic11.png";
 import photo12 from "../assets/pic12.png";
+import "../styles/gallery.scss";
 
 const Gallery = () => {
   const pics = [

@@ -1,10 +1,8 @@
 import React from "react";
-
 import "../styles/navbar.scss";
 //import Navbody from "./Navbody";
 //import Search from "./Search";
 //import Navicons from "./Navicons";
-
 import menu from "../assets/menu.png";
 import logo from "../assets/logo.png";
 import message from "../assets/message.png";
@@ -15,6 +13,7 @@ import chevron from "../assets/chevron-down.png";
 //import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Notifications from "../pages/Notifications";
+//import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
@@ -23,19 +22,6 @@ const Navbar = () => {
     setShowNotification(!showNotification);
   };
 
-  // const { notificationClicked, setNotificationClicked } =
-  //   useContext(notifContext);
-  // const navigate = useNavigate();
-
-  // const handleClickNotif = () => {
-  //   setNotificationClicked(!notificationClicked);
-  //   notificationClicked ? navigate("/notifications") : navigate("/*");
-
-  //   //else {
-  //   //     navigate("/home");
-  //   //   }
-  // };
-
   return (
     <div className="navbar">
       <div className="logo">
@@ -43,6 +29,7 @@ const Navbar = () => {
         <img src={logo} alt="no logo" />
         <h1>Hiphonic</h1>
       </div>
+
       <div className="navbody">
         <div>
           <input type="text" placeholder="Search..." />
