@@ -5,9 +5,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
+  //overflow: scroll;
+  height: 40%;
+  //border: 2px solid black;
   .photo {
     img {
-      //border: 2px solid black;
       width: 90px;
     }
   }

@@ -2,10 +2,23 @@
   margin-left: 10px;
   display: flex;
   flex-direction: row;
-  //border: 2px solid salmon;
   height: 60%;
   gap: 5%;
 
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    .profile-info {
+      .photo-wrapper {
+        height: 200px;
+        border: 2px solid salmon;
+        .photos {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
   .profile-info {
     border-radius: 10px;
     display: flex;
@@ -19,6 +32,14 @@
       align-items: center;
       p {
         color: blue;
+      }
+    }
+    .photo-wrapper {
+      .photos {
+        height: 180px;
+        //border: 2px solid black;
+        overflow: clip;
+        flex-shrink: 0;
       }
     }
   }

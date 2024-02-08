@@ -45,6 +45,7 @@
     justify-content: space-around;
     padding-top: 20px;
     background-color: #fff;
+
     .card {
       background-color: #e4eef8;
       margin-bottom: 20px;
@@ -68,6 +69,9 @@
           border: none;
 
           color: white;
+          &:hover {
+            background-color: blue;
+          }
         }
       }
       .details {
@@ -148,6 +152,11 @@
         color: blue;
         border-radius: 10px;
         border: none;
+        &:hover {
+          background-color: blue;
+          color: white;
+          cursor: pointer;
+        }
       }
     }
   }

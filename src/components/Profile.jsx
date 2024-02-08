@@ -16,7 +16,9 @@ const Main = () => {
           <h4>Photos</h4>
           <p>See all</p>
         </div>
-        <Gallery />
+        <div className="photo-wrapper">
+          <Gallery />
+        </div>
       </div>
       <div className="timeline">
         <NewPost />
