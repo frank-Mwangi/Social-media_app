@@ -55,13 +55,16 @@
       .photo-wrapper {
         .photos {
           height: 90px;
+          padding-right: 10px;
         }
       }
     }
     .timeline {
-      border: 2px solid salmon;
+      //border: 2px solid salmon;
       position: relative;
       top: -100px;
+      padding: 0;
+      margin: 0;
     }
   }
 }

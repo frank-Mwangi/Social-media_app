@@ -10,6 +10,7 @@ import avi7 from "../assets/Avatar (8).png";
 import avi8 from "../assets/Avatar (6).png";
 import avi9 from "../assets/Avatar (2).png";
 import "./friends.scss";
+import verticalDots from "../assets/vertical-dots.png";
 
 const Friends = () => {
   const friends = [
@@ -78,6 +79,9 @@ const Friends = () => {
                 <div className="details">
                   <h4>{friend.name}</h4>
                   <p>@{friend.handle}</p>
+                </div>
+                <div className="dots">
+                  <img src={verticalDots} alt="" />
                 </div>
               </div>
               <div className="bottom">
