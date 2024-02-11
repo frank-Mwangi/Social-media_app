@@ -3,8 +3,8 @@
   display: flex;
   border-radius: 10px;
   flex-direction: column;
+  //border: 2px solid red;
   .title {
-    //border: 2px solid red;
     height: 25px;
     display: flex;
     flex-direction: row;
@@ -44,5 +44,8 @@
         font-size: 15px;
       }
     }
+  }
+  @media screen and (max-width: 425px) {
+    margin-right: 10px;
   }
 }
