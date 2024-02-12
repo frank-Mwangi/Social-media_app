@@ -174,5 +174,17 @@
         }
       }
     }
+    .bottom {
+      .handle {
+        .personal-details {
+          span {
+            justify-content: center;
+            p {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
   }
 }
