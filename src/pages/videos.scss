@@ -163,11 +163,18 @@
       }
       .hero {
         flex-direction: column;
-        //border: 2px solid salmon;
         height: auto;
         align-items: center;
         .card {
           width: 70%;
+          padding-right: 30px;
+
+          video {
+            width: 200px;
+            height: 250px;
+
+            object-fit: cover;
+          }
           button {
             height: 40px;
           }
@@ -183,6 +190,14 @@
               font-size: 11px;
             }
           }
+        }
+      }
+      .video {
+        //border: 2px solid salmon;
+        video {
+          height: 300px;
+          width: 425px;
+          object-fit: cover;
         }
       }
     }
