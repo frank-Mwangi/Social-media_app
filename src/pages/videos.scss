@@ -20,6 +20,11 @@
       align-items: center;
       height: 12%;
       margin-top: 10px;
+      .searchfield {
+        input {
+          display: none;
+        }
+      }
       span {
         border: 1px solid black;
         border-radius: 50%;
@@ -128,6 +133,46 @@
       border-radius: 10px;
       position: relative;
       top: -40px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .top {
+      .title {
+        flex-direction: column;
+        height: 100px;
+        justify-content: center;
+        //border: 2px solid salmon;
+        .searchfield {
+          display: flex;
+          margin-bottom: 20px;
+          input {
+            display: flex;
+            border: 1px solid gray;
+            border-right: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+          span {
+            border: 1px solid gray;
+            border-radius: 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-left: none;
+          }
+        }
+      }
+      .hero {
+        flex-direction: column;
+        //border: 2px solid salmon;
+        height: auto;
+        align-items: center;
+        .card {
+          width: 70%;
+          button {
+            height: 40px;
+          }
+        }
+      }
     }
   }
 }

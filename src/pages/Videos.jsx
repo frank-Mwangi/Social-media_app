@@ -14,9 +14,12 @@ const Videos = () => {
       <div className="top">
         <div className="title">
           <h2>Video</h2>
-          <span>
-            <img src={search} alt="" />
-          </span>
+          <div className="searchfield">
+            <input type="text" placeholder="Search..." />
+            <span>
+              <img src={search} alt="" />
+            </span>
+          </div>
         </div>
         <div className="categories">
           <h4>Categories to explore</h4>
