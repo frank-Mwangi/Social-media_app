@@ -26,21 +26,30 @@ const Post = () => {
         </p>
       </div>
       <div className="images">
-        <img src={photo1} alt="no-pic" />
+        <img className="img1" src={photo1} alt="no-pic" />
         <img src={photo2} alt="no-pic" />
       </div>
       <div className="impressions">
         <div className="impression">
           <img src={heart} alt="like-icon" />
-          <p>2.6K Likes</p>
+          <p>
+            2.6K
+            <span> Likes</span>
+          </p>
         </div>
         <div className="impression">
           <img src={comment} alt="comment-icon" />
-          <p>297 Comments</p>
+          <p>
+            297
+            <span> Comments</span>
+          </p>
         </div>
         <div className="impression">
           <img src={share} alt="share-icon" />
-          <p>201 Share</p>
+          <p>
+            201
+            <span> Share</span>
+          </p>
         </div>
       </div>
       <form className="comment">

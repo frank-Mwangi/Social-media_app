@@ -160,4 +160,38 @@
       }
     }
   }
+  @media screen and (max-width: 425px) {
+    .categories {
+      display: flex;
+      flex-direction: column;
+      span {
+        //width: 425px;
+        display: flex;
+        width: 200px;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+        h5 {
+          color: gray;
+        }
+      }
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+
+      .card {
+        //border: 2px solid salmon;
+        width: 300px;
+        margin-left: 20px;
+        height: 400px;
+        .registr {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

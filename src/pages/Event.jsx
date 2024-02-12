@@ -25,6 +25,7 @@ const Event = () => {
         </li>
         <span>
           <img src={calendar} alt="no-icon" />
+          <h5>November</h5>
         </span>
       </div>
       <div className="cards">

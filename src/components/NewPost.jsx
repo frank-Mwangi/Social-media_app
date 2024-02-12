@@ -1,6 +1,6 @@
 import React from "react";
 import avi from "../assets/Avatar.png";
-import liveVideo from "../assets/video.png";
+import liveVideo from "../assets/videos.png";
 import image from "../assets/photo.png";
 import star from "../assets/star.png";
 import "../styles/newpost.scss";
@@ -15,6 +15,7 @@ const NewPost = () => {
       <div className="options">
         <div className="option">
           <img src={liveVideo} alt="" />
+          <p>Live Video</p>
         </div>
         <div className="option">
           <img src={image} alt="" />
