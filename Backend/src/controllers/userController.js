@@ -1,11 +1,13 @@
 import {
   checkIfValuesIsEmptyNullUndefined,
   sendCreated,
+  sendDeleteSuccess,
   sendNotFound,
   sendServerError,
 } from "../helpers/helperFunctions.js";
 import {
   createUserService,
+  deleteUserService,
   getUsersService,
   updateUserService,
 } from "../services/userServices.js";
@@ -104,6 +106,24 @@ export const updateUser = async (req, res) => {
       } else {
         sendServerError(res, "Please provide a complete field");
       }
+    }
+  } catch (error) {
+    sendServerError(res, error.message);
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await getUsersService();
+    //console.log(data);
+    const userToDelete = data.find((item) => (item.UserID = id));
+    //console.log(userToDelete);
+    if (!userToDelete) {
+      sendNotFound(res, "User not found");
+    } else {
+      await deleteUserService(id);
+      sendDeleteSuccess(res, `User with ID ${id} deleted successfully`);
     }
   } catch (error) {
     sendServerError(res, error.message);

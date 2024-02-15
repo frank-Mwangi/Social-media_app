@@ -10,7 +10,7 @@ GET http://localhost:8000/api/user
 
 ### GET user by ID
 
-GET http://localhost:8000/api/user/5
+GET http://localhost:8000/api/user/12
 
 ### CREATE NEW USER
 
@@ -38,12 +38,37 @@ Content-Type: application/json
     "Location": "Nyeri"
 }
 
-### Get all groups
+### Delete a user
+DELETE http://localhost:8000/api/users/12
 
+### Get all groups
 GET http://localhost:8000/api/groups
 
 ### Get Group by ID
-GET http://localhost:8000/api/groups/2
+GET http://localhost:8000/api/groups/3
+
+### create group
+POST http://localhost:8000/api/groups
+Content-Type: application/json
+
+{
+    "GroupName": "Coldplay",
+    "Description": "Grammy winning band from the UK",
+    "CreatedDate": "2024-02-15"
+}
+
+### update group
+PUT http://localhost:8000/api/groups/2
+Content-Type: application/json
+
+{
+    "GroupName": "21 Pilots",
+    "Description": "Dynamic duo from the US",
+    "CreatedDate": "2004-04-03"
+}
+
+### Delete a group
+DELETE http://localhost:8000/api/groups/3
 
 ### Get all events
 GET http://localhost:8000/api/events

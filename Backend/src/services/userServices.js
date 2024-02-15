@@ -1,3 +1,4 @@
+import { sendNotFound } from "../helpers/helperFunctions.js";
 import { poolRequest, sql } from "../utils/dbConnect.js";
 
 export const getUsersService = async () => {
@@ -42,5 +43,15 @@ export const updateUserService = async (user) => {
     return result;
   } catch (error) {
     return error;
+  }
+};
+
+export const deleteUserService = async (UserID) => {
+  try {
+    await poolRequest()
+      .input("UserID", sql.Int, UserID)
+      .query("DELETE FROM [User] WHERE UserID=@UserID");
+  } catch (error) {
+    return error.message;
   }
 };
