@@ -25,7 +25,7 @@ export const getUsers = async (req, res) => {
 export const getUsersById = async (req, res) => {
   try {
     const data = await getUsersService();
-    console.log(data);
+
     const user = data.find((item) => item.UserID == req.params.id);
     if (!user) {
       sendNotFound(res, "User not found");

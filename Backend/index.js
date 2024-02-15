@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import userRouter from "./src/router/userRoutes.js";
 import groupRoutes from "./src/router/groupRoutes.js";
+import eventRoutes from "./src/router/eventRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.get("/health", (req, res) => {
 
 app.use("/api", userRouter);
 app.use("/api", groupRoutes);
+app.use("/api", eventRoutes);
 
 app.listen(port, () => {
   logger.info(`Server running on port http://localhost:${port}`);

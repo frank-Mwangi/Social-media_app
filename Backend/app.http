@@ -30,5 +30,10 @@ Content-Type: application/json
 GET http://localhost:8000/api/groups
 
 ### Get Group by ID
-
 GET http://localhost:8000/api/groups/2
+
+### Get all events
+GET http://localhost:8000/api/events
+
+### Get event by ID
+GET http://localhost:8000/api/events/1
