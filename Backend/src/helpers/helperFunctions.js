@@ -17,3 +17,12 @@ export const sendDeleteSuccess = (res, message) => {
 export const sendServerError = (res, message) => {
   return res.status(500).json({ message: message });
 };
+
+export const checkIfValuesIsEmptyNullUndefined = (req, res, obj) => {
+  for (let key in obj) {
+    if (obj[key] === "" || obj[key] === null || obj[key] === undefined) {
+      return false;
+    }
+  }
+  return true;
+};

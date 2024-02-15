@@ -10,19 +10,32 @@ GET http://localhost:8000/api/user
 
 ### GET user by ID
 
-GET http://localhost:8000/api/user/2
+GET http://localhost:8000/api/user/5
 
 ### CREATE NEW USER
 
-POST http://localhost:8000/api/user/register
+POST http://localhost:8000/api/users
 Content-Type: application/json
 
 {
-    "Username": "Cersei",
-    "Email": "Cersei@Lannister.com",
-    "Password": "cersei00",
-    "TagName": "QueenMother",
-    "Location": "King's Landing"
+    "Username": "Jamie404",
+    "Email": "Jamie@Lannister.com",
+    "Password": "JamieLannister",
+    "TagName": "Kingslayer",
+    "Location": "KingsLanding"
+}
+
+### Update a user
+PUT http://localhost:8000/api/users/5
+Content-Type: application/json
+
+{
+    
+    "Username": "Khaleesi",
+    "Email": "Khaleesi@momdragons.com",
+    "Password": "khaleesi00",
+    "TagName": "MotherOfDragons",
+    "Location": "Nyeri"
 }
 
 ### Get all groups
@@ -37,3 +50,9 @@ GET http://localhost:8000/api/events
 
 ### Get event by ID
 GET http://localhost:8000/api/events/1
+
+### Get Messages
+GET http://localhost:8000/api/messages
+
+### GET messages by ID
+GET http://localhost:8000/api/messages/12

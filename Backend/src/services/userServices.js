@@ -9,16 +9,35 @@ export const getUsersService = async () => {
   }
 };
 
-export const createUserService = async (user) => {
+export const createUserService = async (newUser) => {
   try {
     const result = await poolRequest()
-      .input("Username", sql.VarChar, user.Username)
-      .input("Email", sql.VarChar, user.Email)
-      .input("Password", sql.VarChar)
-      .input("TagName", sql.VarChar)
-      .input("Location", sql.VarChar)
+      .input("Username", sql.VarChar, newUser.Username)
+      .input("Email", sql.VarChar, newUser.Email)
+      .input("Password", sql.VarChar, newUser.Password)
+      .input("TagName", sql.VarChar, newUser.TagName)
+      .input("Location", sql.VarChar, newUser.Location)
       .query(
         "INSERT INTO [User] (Username, Email, Password, TagName, Location) VALUES (@Username, @Email, @Password, @TagName, @Location)"
+      );
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updateUserService = async (user) => {
+  const { UserID, Username, Email, Password, TagName, Location } = user;
+  try {
+    const result = await poolRequest()
+      .input("UserID", sql.Int, UserID)
+      .input("Username", sql.VarChar, Username)
+      .input("Email", sql.VarChar, Email)
+      .input("Password", sql.VarChar, Password)
+      .input("TagName", sql.VarChar, TagName)
+      .input("Location", sql.VarChar, Location)
+      .query(
+        "UPDATE [User] SET Username=@Username, Email=@Email, Password=@Password, TagName=@TagName, Location=@Location WHERE UserID=@UserID"
       );
     return result;
   } catch (error) {
