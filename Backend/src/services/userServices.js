@@ -1,4 +1,3 @@
-import { sendNotFound } from "../helpers/helperFunctions.js";
 import { poolRequest, sql } from "../utils/dbConnect.js";
 
 export const getUsersService = async () => {

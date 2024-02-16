@@ -1,12 +1,18 @@
 import { Router } from "express";
 import {
+  createMessage,
+  deleteMessage,
   getMessages,
   getMessagesById,
+  updateMessage,
 } from "../controllers/messageController.js";
 
-const messageRoutes = Router();
+const messageRouter = Router();
 
-messageRoutes.get("/messages", getMessages);
-messageRoutes.get("/messages/:id", getMessagesById);
+messageRouter.get("/messages", getMessages);
+messageRouter.get("/messages/:id", getMessagesById);
+messageRouter.post("/messages", createMessage);
+messageRouter.put("/messages/:id", updateMessage);
+messageRouter.delete("messages/:id", deleteMessage);
 
-export default messageRoutes;
+export default messageRouter;

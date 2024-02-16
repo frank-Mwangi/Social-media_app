@@ -10,7 +10,7 @@ GET http://localhost:8000/api/user
 
 ### GET user by ID
 
-GET http://localhost:8000/api/user/12
+GET http://localhost:8000/api/user/5
 
 ### CREATE NEW USER
 
@@ -31,10 +31,10 @@ Content-Type: application/json
 
 {
     
-    "Username": "Khaleesi",
-    "Email": "Khaleesi@momdragons.com",
-    "Password": "khaleesi00",
-    "TagName": "MotherOfDragons",
+    "Username": "KhalDrogo",
+    "Email": "Khaldrogo@dothraki.com",
+    "Password": "khaldrogo00",
+    "TagName": "FatherOfDragons",
     "Location": "Nyeri"
 }
 
@@ -74,10 +74,95 @@ DELETE http://localhost:8000/api/groups/3
 GET http://localhost:8000/api/events
 
 ### Get event by ID
-GET http://localhost:8000/api/events/1
+GET http://localhost:8000/api/events/4
+
+### create event
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+    "EventName": "Octoberfest",
+    "Description": "The ultimate beer festival for local music fans",
+    "EventDate": "2024-10-20",
+    "Location": "NgongRacecourse",
+    "EventPosterURL": "sampleUrl"
+}
+
+### Update event
+PUT http://localhost:8000/api/events/4
+Content-Type: application/json
+
+{
+    "EventName": "Octoberfest",
+    "Description": "The ultimate beer festival for local music fans",
+    "EventDate": "2024-10-21",
+    "Location": "NgongRacecourse",
+    "EventPosterURL": "sampleUrlEdited"
+}
+
+### Delete event
+DELETE http://localhost:8000/api/events/3 
 
 ### Get Messages
 GET http://localhost:8000/api/messages
 
 ### GET messages by ID
-GET http://localhost:8000/api/messages/12
+GET http://localhost:8000/api/messages/1003
+
+### Create new message
+POST http://localhost:8000/api/messages
+Content-Type: application/json
+
+{
+    "SenderID": 2,
+    "ReceiverID": 3,
+    "MessageDate": "2024-02-16",
+    "Content": "Did you see what I done, came in a black Benz, left in a white one"
+}
+
+### Update a message
+PUT http://localhost:8000/api/messages/1003
+Content-Type: application/json
+
+{
+    "SenderID": 3,
+    "ReceiverID": 2,
+    "MessageDate": "2024-02-15",
+    "Content": "I'm just a hoodlum"
+}
+
+### Delete a message
+DELETE http://localhost:8000/api/messages/1003 
+
+###Get posts
+GET http://localhost:8000/api/posts
+
+### Get Post by ID
+GET http://localhost:8000/api/posts/2
+
+### Create Post
+POST http://localhost:8000/api/posts
+Content-Type: application/json
+
+{
+    "UserID": 1,
+    "Content": "Just came back from Jamaica",
+    "PostDate": "2024-02-16",
+    "Likes": 69,
+    "Comments": 50
+}
+
+### Update post
+PUT http://localhost:8000/api/posts/1002
+Content-Type: application/json
+
+{
+    "UserID": 1,
+    "Content": "Just came back from Jamaica. Tan almost everywhere. Jan almost everywhere",
+    "PostDate": "2024-02-16",
+    "Likes": 69,
+    "Comments": 54
+}
+
+### Delete Post
+DELETE http://localhost:8000/api/posts/1002

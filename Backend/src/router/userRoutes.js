@@ -1,5 +1,4 @@
 import { Router } from "express";
-import logger from "../utils/logger.js";
 import {
   createUser,
   deleteUser,
