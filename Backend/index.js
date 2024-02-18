@@ -7,6 +7,9 @@ import groupRoutes from "./src/router/groupRoutes.js";
 import eventRoutes from "./src/router/eventRoutes.js";
 import messageRouter from "./src/router/messageRoutes.js";
 import postRouter from "./src/router/postRoutes.js";
+import friendshipRouter from "./src/router/friendshipRoutes.js";
+import photoRouter from "./src/router/photoRoutes.js";
+import commentRouter from "./src/router/commentRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -25,6 +28,9 @@ app.use("/api", groupRoutes);
 app.use("/api", eventRoutes);
 app.use("/api", messageRouter);
 app.use("/api", postRouter);
+app.use("/api", friendshipRouter);
+app.use("/api", photoRouter);
+app.use("/api", commentRouter);
 
 app.listen(port, () => {
   logger.info(`Server running on port http://localhost:${port}`);

@@ -37,7 +37,7 @@ let poolRequest;
 
 try {
   appPool = await sql.connect(sqlConfig);
-  console.log("Reached here");
+  //console.log("Reached here");
   poolRequest = () => appPool.request();
   if (appPool) {
     logger.info("Connected to MSSQL Server");

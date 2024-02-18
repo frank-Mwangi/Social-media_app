@@ -18,34 +18,34 @@ POST http://localhost:8000/api/users
 Content-Type: application/json
 
 {
-    "Username": "Jamie404",
-    "Email": "Jamie@Lannister.com",
-    "Password": "JamieLannister",
-    "TagName": "Kingslayer",
+    "Username": "Tyrion404",
+    "Email": "Tyrion@Lannister.com",
+    "Password": "TyrionLannister",
+    "TagName": "Kingshand",
     "Location": "KingsLanding"
 }
 
 ### Update a user
-PUT http://localhost:8000/api/users/5
+PUT http://localhost:8000/api/users/8
 Content-Type: application/json
 
 {
     
-    "Username": "KhalDrogo",
-    "Email": "Khaldrogo@dothraki.com",
-    "Password": "khaldrogo00",
-    "TagName": "FatherOfDragons",
-    "Location": "Nyeri"
+    "Username": "BrienneTarth",
+    "Email": "Brienne@tarth.com",
+    "Password": "Briennetarth00",
+    "TagName": "MamaKnight",
+    "Location": "Winterfell"
 }
 
 ### Delete a user
-DELETE http://localhost:8000/api/users/12
+DELETE http://localhost:8000/api/users/1002
 
 ### Get all groups
 GET http://localhost:8000/api/groups
 
 ### Get Group by ID
-GET http://localhost:8000/api/groups/3
+GET http://localhost:8000/api/groups/1
 
 ### create group
 POST http://localhost:8000/api/groups
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 
 ### Delete a group
-DELETE http://localhost:8000/api/groups/3
+DELETE http://localhost:8000/api/groups/1002
 
 ### Get all events
 GET http://localhost:8000/api/events
@@ -97,11 +97,11 @@ Content-Type: application/json
     "Description": "The ultimate beer festival for local music fans",
     "EventDate": "2024-10-21",
     "Location": "NgongRacecourse",
-    "EventPosterURL": "sampleUrlEdited"
+    "EventPosterURL": "sampleUrlEditedToo"
 }
 
 ### Delete event
-DELETE http://localhost:8000/api/events/3 
+DELETE http://localhost:8000/api/events/1002 
 
 ### Get Messages
 GET http://localhost:8000/api/messages
@@ -166,3 +166,86 @@ Content-Type: application/json
 
 ### Delete Post
 DELETE http://localhost:8000/api/posts/1002
+
+### Get all friendships
+GET http://localhost:8000/api/friendships
+
+### Get Friendships by FriendshipID
+GET http://localhost:8000/api/friendships/1002
+
+### Get all friends of a user
+GET http://localhost:8000/api/friends/1
+
+### Create new friendship
+POST http://localhost:8000/api/friendships
+Content-Type: application/json
+
+{
+   "User1ID": 2,
+   "User2ID": 3,
+   "FriendshipDate": "2024-02-16" 
+}
+
+###
+DELETE http://localhost:8000/api/friendships/1
+
+### GET all photos
+GET http://localhost:8000/api/photos
+
+### Get Photo by ID
+GET http://localhost:8000/api/photos/1003
+
+### Create photo
+POST http://localhost:8000/api/photos
+Content-Type: application/json
+
+{
+    "UserID": 1,
+    "PhotoURL": "url4",
+    "UploadDate": "2024-01-18"
+}
+
+### Update a photo
+PUT http://localhost:8000/api/photos/1003
+Content-Type: application/json
+
+{
+    "UserID": 1,
+    "PhotoURL": "url4edited",
+    "UploadDate": "2024-02-18"
+}
+
+### Delete a photo
+DELETE http://localhost:8000/api/photos/1002
+
+### Get comments
+GET http://localhost:8000/api/comments
+
+### Get Comments by CommentID
+GET http://localhost:8000/api/comments/2
+
+### Get comments for a particular post
+GET http://localhost:8000/api/3/comments
+
+### Create a comment
+POST http://localhost:8000/api/comments
+Content-Type: application/json
+
+{
+    "PostID": 3,
+    "UserID": 2,
+    "CommentDate": "2024-02-19",
+    "Content": "User 2 comments on post 3"
+
+}
+
+### Update comment
+PUT http://localhost:8000/api/comments/1
+Content-Type: application/json
+
+{
+    "PostID": 1,
+    "UserID": 2,
+    "CommentDate": "2024-02-20",
+    "Content": "Updated comment on post 1"
+}

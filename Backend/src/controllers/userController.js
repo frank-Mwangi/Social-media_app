@@ -11,18 +11,26 @@ import {
   getUsersService,
   updateUserService,
 } from "../services/userServices.js";
-import { poolRequest } from "../utils/dbConnect.js";
+
 import { userValidator } from "../validators/userValidator.js";
 
 export const getUsers = async (req, res) => {
   try {
+    console.log("Attempt made");
     const data = await getUsersService();
     if (data.length == 0) {
       sendNotFound(res, "No users found");
     } else {
-      res.status(200).json(data);
+      const userList = [];
+      data.forEach((element) => {
+        const { Password, ...userData } = element;
+        userList.push(userData);
+      });
+
+      res.status(200).json(userList);
     }
   } catch (error) {
+    console.log("Caught here");
     res.status(500).send("Server error");
   }
 };
@@ -35,7 +43,8 @@ export const getUsersById = async (req, res) => {
     if (!user) {
       sendNotFound(res, "User not found");
     } else {
-      res.status(200).json(user);
+      const { Password, ...userData } = user;
+      res.status(200).json(userData);
     }
   } catch {
     res.status(500).send("Server Error");
