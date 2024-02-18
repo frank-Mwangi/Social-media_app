@@ -249,3 +249,27 @@ Content-Type: application/json
     "CommentDate": "2024-02-20",
     "Content": "Updated comment on post 1"
 }
+
+### Delete comment
+DELETE http://localhost:8000/api/comments/1002
+
+### Get all eventattendees
+GET http://localhost:8000/api/eventattendees
+
+### Get attendees of an event
+GET http://localhost:8000/api/eventattendees/2
+
+### Get events attended by a user
+GET http://localhost:8000/api/4/eventattendees/
+
+### Create new eventAttendee entry
+POST http://localhost:8000/api/eventattendees/
+Content-Type: application/json
+
+{
+    "EventID": 4,
+    "AttendeeID": 4
+}
+
+### Delete event attendee entry
+DELETE http://localhost:8000/api/eventattendees/4/4
