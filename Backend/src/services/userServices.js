@@ -15,7 +15,7 @@ export const getUsersService = async () => {
 export const getUsersByEmailService = async (Email) => {
   try {
     const result = await poolRequest()
-      .input("Email", sql.VarChar, Email)
+      .input("Email", sql.VarChar, Email.toLowerCase())
       .query("SELECT * FROM [User] WHERE Email=@Email");
     return result.recordset;
   } catch (error) {
@@ -26,11 +26,11 @@ export const getUsersByEmailService = async (Email) => {
 export const createUserService = async (newUser) => {
   try {
     const result = await poolRequest()
-      .input("Username", sql.VarChar, newUser.Username)
-      .input("Email", sql.VarChar, newUser.Email)
+      .input("Username", sql.VarChar, newUser.Username.toLowerCase())
+      .input("Email", sql.VarChar, newUser.Email.toLowerCase())
       .input("Password", sql.VarChar, newUser.Password)
-      .input("TagName", sql.VarChar, newUser.TagName)
-      .input("Location", sql.VarChar, newUser.Location)
+      .input("TagName", sql.VarChar, newUser.TagName.toLowerCase())
+      .input("Location", sql.VarChar, newUser.Location.toLowerCase())
       .query(
         "INSERT INTO [User] (Username, Email, Password, TagName, Location) VALUES (@Username, @Email, @Password, @TagName, @Location)"
       );
@@ -45,11 +45,11 @@ export const updateUserService = async (user) => {
   try {
     const result = await poolRequest()
       .input("UserID", sql.Int, UserID)
-      .input("Username", sql.VarChar, Username)
-      .input("Email", sql.VarChar, Email)
+      .input("Username", sql.VarChar, Username.toLowerCase())
+      .input("Email", sql.VarChar, Email.toLowerCase())
       .input("Password", sql.VarChar, Password)
-      .input("TagName", sql.VarChar, TagName)
-      .input("Location", sql.VarChar, Location)
+      .input("TagName", sql.VarChar, TagName.toLowerCase())
+      .input("Location", sql.VarChar, Location.toLowerCase())
       .query(
         "UPDATE [User] SET Username=@Username, Email=@Email, Password=@Password, TagName=@TagName, Location=@Location WHERE UserID=@UserID"
       );
@@ -62,7 +62,7 @@ export const updateUserService = async (user) => {
 export const findByCredentialsService = async (user) => {
   try {
     const userFoundResponse = await poolRequest()
-      .input("Username", sql.VarChar, user.Username)
+      .input("Username", sql.VarChar, user.Username.toLowerCase())
       .query("SELECT * FROM [User] WHERE Username=@Username");
     if (userFoundResponse.recordset[0]) {
       if (
@@ -79,7 +79,7 @@ export const findByCredentialsService = async (user) => {
           },
 
           process.env.JWT_SECRET,
-          { expiresIn: "2h" }
+          { expiresIn: "24h" }
         );
         const { Password, ...user } = userFoundResponse.recordset[0];
         return { user, token: `JWT ${token}` };

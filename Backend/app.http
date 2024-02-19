@@ -25,11 +25,11 @@ POST http://localhost:8000/api/user/register
 Content-Type: application/json
 
 {
-    "Username": "Ned Stark",
-    "Email": "macapof326@minhlun.com",
-    "Password": "NedStark",
-    "TagName": "Kingshand",
-    "Location": "Winterfell"
+    "Username": "Sam Tarly",
+    "Email": "hasar20076@massefm.com",
+    "Password": "SamTarly",
+    "TagName": "FatMan",
+    "Location": "TheWall"
 }
 
 ### Login a user
@@ -37,22 +37,22 @@ POST http://localhost:8000/api/users/auth/login
 Content-Type: application/json
 
 {
-    "Username": "Ned Stark",
-    "Password": "NedStark"
+    "Username": "Sam Tarly",
+    "Password": "SamTarly"
 }
 
 ### Update a user
 PUT http://localhost:8000/api/users/1017
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxNywidXNlcm5hbWUiOiJOZWQgU3RhcmsiLCJlbWFpbCI6Im1hY2Fwb2YzMjZAbWluaGx1bi5jb20iLCJpYXQiOjE3MDgzNTk1MTUsImV4cCI6MTcwODM2NjcxNX0.UKF1TL1ggDx3pdX6CC20oRsAy5lti_UeRgnGXCegcko
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxOCwidXNlcm5hbWUiOiJzYW0gdGFybHkiLCJlbWFpbCI6Imhhc2FyMjAwNzZAbWFzc2VmbS5jb20iLCJpYXQiOjE3MDgzNjQyNjQsImV4cCI6MTcwODQ1MDY2NH0.IovG5BFoOrXu19xbUqGsgGd2aortQlnAfGaIOe0vEus
 
 {
     
-    "Username": "Ned Stark",
-    "Email": "Ned@stark.com",
-    "Password": "WinterIsComing",
-    "TagName": "LordOfTheNorth",
-    "Location": "Winterfell"
+    "Username": "Samuel Tarly",
+    "Email": "hasar20076@massefm.com",
+    "Password": "SamTarly",
+    "TagName": "FatMan",
+    "Location": "TheWall"
 }
 
 
