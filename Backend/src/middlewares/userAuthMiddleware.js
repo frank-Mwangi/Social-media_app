@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { notAuthorized } from "../helpers/helperFunctions";
+import { notAuthorized } from "../helpers/helperFunctions.js";
 
 export const authMiddleware = (req, res, next) => {
   if (

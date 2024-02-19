@@ -34,7 +34,7 @@ export const updatePhotoService = async (photo) => {
       .input("PhotoURL", sql.VarChar, PhotoURL)
       .input("UploadDate", sql.DateTime, UploadDate)
       .query(
-        "UPDATE Photo SET PhotoID=@PhotoID, UserID=@UserID, PhotoURL=@PhotoURL, UploadDate=@UploadDate WHERE PhotoID=@PhotoID"
+        "UPDATE Photo SET UserID=@UserID, PhotoURL=@PhotoURL, UploadDate=@UploadDate WHERE PhotoID=@PhotoID"
       );
     return result;
   } catch (error) {

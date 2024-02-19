@@ -18,7 +18,7 @@ export const createCommentService = async (newComment) => {
       .input("CommentDate", sql.DateTime, CommentDate)
       .input("Content", sql.VarChar, Content)
       .query(
-        "INSERT INTO Post (PostID, UserID, CommentDate, Content) VALUES (@PostID, @UserID, @CommentDate, @Content)"
+        "INSERT INTO Comment (PostID, UserID, CommentDate, Content) VALUES (@PostID, @UserID, @CommentDate, @Content)"
       );
     return result;
   } catch (error) {

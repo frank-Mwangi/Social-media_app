@@ -7,10 +7,17 @@ GET http://localhost:8000/health
 
 ### Get all users
 GET http://localhost:8000/api/user
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxNywidXNlcm5hbWUiOiJOZWQgU3RhcmsiLCJlbWFpbCI6Im1hY2Fwb2YzMjZAbWluaGx1bi5jb20iLCJpYXQiOjE3MDgzNTk1MTUsImV4cCI6MTcwODM2NjcxNX0.UKF1TL1ggDx3pdX6CC20oRsAy5lti_UeRgnGXCegcko
 
 ### GET user by ID
 
 GET http://localhost:8000/api/user/5
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxNywidXNlcm5hbWUiOiJOZWQgU3RhcmsiLCJlbWFpbCI6Im1hY2Fwb2YzMjZAbWluaGx1bi5jb20iLCJpYXQiOjE3MDgzNTk1MTUsImV4cCI6MTcwODM2NjcxNX0.UKF1TL1ggDx3pdX6CC20oRsAy5lti_UeRgnGXCegcko
+
+### Delete a user
+DELETE http://localhost:8000/api/users/1017
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxNywidXNlcm5hbWUiOiJOZWQgU3RhcmsiLCJlbWFpbCI6Im1hY2Fwb2YzMjZAbWluaGx1bi5jb20iLCJpYXQiOjE3MDgzNTk1MTUsImV4cCI6MTcwODM2NjcxNX0.UKF1TL1ggDx3pdX6CC20oRsAy5lti_UeRgnGXCegcko
 
 ### CREATE/REGISTER NEW USER
 
@@ -18,8 +25,8 @@ POST http://localhost:8000/api/user/register
 Content-Type: application/json
 
 {
-    "Username": "NedStark",
-    "Email": "powaja2892@tupanda.com",
+    "Username": "Ned Stark",
+    "Email": "macapof326@minhlun.com",
     "Password": "NedStark",
     "TagName": "Kingshand",
     "Location": "Winterfell"
@@ -30,25 +37,25 @@ POST http://localhost:8000/api/users/auth/login
 Content-Type: application/json
 
 {
-    "Username": "Tyrion404",
-    "Password": "TyrionLannister"
+    "Username": "Ned Stark",
+    "Password": "NedStark"
 }
 
 ### Update a user
-PUT http://localhost:8000/api/users/8
+PUT http://localhost:8000/api/users/1017
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxNywidXNlcm5hbWUiOiJOZWQgU3RhcmsiLCJlbWFpbCI6Im1hY2Fwb2YzMjZAbWluaGx1bi5jb20iLCJpYXQiOjE3MDgzNTk1MTUsImV4cCI6MTcwODM2NjcxNX0.UKF1TL1ggDx3pdX6CC20oRsAy5lti_UeRgnGXCegcko
 
 {
     
-    "Username": "BrienneTarth",
-    "Email": "Brienne@tarth.com",
-    "Password": "Briennetarth00",
-    "TagName": "MamaKnight",
+    "Username": "Ned Stark",
+    "Email": "Ned@stark.com",
+    "Password": "WinterIsComing",
+    "TagName": "LordOfTheNorth",
     "Location": "Winterfell"
 }
 
-### Delete a user
-DELETE http://localhost:8000/api/users/1011
+
 
 ### Get all groups
 GET http://localhost:8000/api/groups
@@ -287,10 +294,10 @@ DELETE http://localhost:8000/api/eventattendees/4/4
 GET http://localhost:8000/api/groups
 
 ### Get Group by ID
-GET http://localhost:8000/api/groups/2
+GET http://localhost:8000/api/groups/1
 
 ### Get Member's Groups
-GET http://localhost:8000/api/1/groups
+GET http://localhost:8000/api/2/groups
 
 ###Create a new groupmember
 POST http://localhost:8000/api/groupmembers
@@ -298,7 +305,7 @@ Content-Type: application/json
 
 {
     "GroupID": 3,
-    "MemberID": 4
+    "MemberID": 5
 }
 
 ###

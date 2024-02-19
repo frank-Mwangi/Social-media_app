@@ -42,7 +42,8 @@ export const registerUser = async (req, res) => {
   } else {
     const ourUser = await getUsersByEmailService(Email);
 
-    if (ourUser) {
+    console.log(ourUser.length);
+    if (ourUser.length !== 0) {
       res.status(400).send("User already exists");
     } else {
       try {
@@ -61,7 +62,7 @@ export const registerUser = async (req, res) => {
           console.log("Error here");
           sendServerError(res, response.message);
         } else {
-          sendMail();
+          sendMail(newUser.Email, newUser.Username);
           sendCreated(res, "User created successfully");
         }
       } catch (error) {
@@ -71,7 +72,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-export const sendMail = async (req, res) => {
+export const sendMail = async (email, username, req, res) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -81,9 +82,10 @@ export const sendMail = async (req, res) => {
   });
   const mailOptions = {
     from: process.env.EMAIL,
-    to: "powaja2892@tupanda.com",
+    to: email,
     subject: "Welcome to Hiphonic",
-    html: emailTemp,
+    html: `Welcome to Hiphonic, ${username}! We are thrilled to have you on the platform.`,
+    //html: emailTemp,
   };
   try {
     logger.info("Sending mail...");
@@ -209,7 +211,9 @@ export const updateUser = async (req, res) => {
           user.Email = Email;
         }
         if (Password) {
-          user.Password = Password;
+          const salt = await bcrypt.genSalt(10);
+          const hashedPassword = await bcrypt.hash(Password, salt);
+          user.Password = hashedPassword;
         }
         if (TagName) {
           user.TagName = TagName;

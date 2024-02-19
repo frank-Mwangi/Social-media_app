@@ -78,7 +78,7 @@ export const createEvent = async (req, res) => {
 
 export const updateEvent = async (req, res) => {
   try {
-    const event = await getEventsByIdService(req.params.id);
+    let event = await getEventsByIdService(req.params.id);
     if (!event) {
       sendNotFound(res, "Event not found");
     } else {

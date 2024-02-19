@@ -5,7 +5,7 @@ import {
   getGroupMembers,
   getGroupMembersByID,
   getGroupsByMemberID,
-} from "../controllers/groupMemberController";
+} from "../controllers/groupMemberController.js";
 
 const groupMemberRouter = Router();
 
