@@ -6,15 +6,29 @@ import {
   getEventAttendees,
   getEventsByAttendeeId,
 } from "../controllers/eventAttendeeController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const eventAttendeeRouter = Router();
 
-eventAttendeeRouter.get("/eventattendees", getEventAttendees);
-eventAttendeeRouter.get("/eventattendees/:id", getAttendeesByEventId);
-eventAttendeeRouter.get("/:id/eventattendees", getEventsByAttendeeId);
-eventAttendeeRouter.post("/eventattendees", createEventAttendee);
+eventAttendeeRouter.get("/eventattendees", authMiddleware, getEventAttendees);
+eventAttendeeRouter.get(
+  "/eventattendees/:id",
+  authMiddleware,
+  getAttendeesByEventId
+);
+eventAttendeeRouter.get(
+  "/:id/eventattendees",
+  authMiddleware,
+  getEventsByAttendeeId
+);
+eventAttendeeRouter.post(
+  "/eventattendees",
+  authMiddleware,
+  createEventAttendee
+);
 eventAttendeeRouter.delete(
   "/eventattendees/:eventid/:attendeeid",
+  authMiddleware,
   deleteEventAttendee
 );
 

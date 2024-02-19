@@ -6,13 +6,14 @@ import {
   getPhotosById,
   updatePhoto,
 } from "../controllers/photoController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const photoRouter = Router();
 
-photoRouter.get("/photos", getPhotos);
-photoRouter.get("/photos/:id", getPhotosById);
-photoRouter.post("/photos", createPhoto);
-photoRouter.put("/photos/:id", updatePhoto);
-photoRouter.delete("/photos/:id", deletePhoto);
+photoRouter.get("/photos", authMiddleware, getPhotos);
+photoRouter.get("/photos/:id", authMiddleware, getPhotosById);
+photoRouter.post("/photos", authMiddleware, createPhoto);
+photoRouter.put("/photos/:id", authMiddleware, updatePhoto);
+photoRouter.delete("/photos/:id", authMiddleware, deletePhoto);
 
 export default photoRouter;

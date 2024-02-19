@@ -6,13 +6,14 @@ import {
   getEvents,
   updateEvent,
 } from "../controllers/eventController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const eventRoutes = Router();
 
-eventRoutes.get("/events", getEvents);
-eventRoutes.get("/events/:id", getEventById);
-eventRoutes.post("/events", createEvent);
-eventRoutes.put("/events/:id", updateEvent);
-eventRoutes.delete("/events/:id", deleteEvent);
+eventRoutes.get("/events", authMiddleware, getEvents);
+eventRoutes.get("/events/:id", authMiddleware, getEventById);
+eventRoutes.post("/events", authMiddleware, createEvent);
+eventRoutes.put("/events/:id", authMiddleware, updateEvent);
+eventRoutes.delete("/events/:id", authMiddleware, deleteEvent);
 
 export default eventRoutes;

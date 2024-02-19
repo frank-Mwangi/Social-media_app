@@ -7,14 +7,15 @@ import {
   getCommentsByPostId,
   updateComment,
 } from "../controllers/commentController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const commentRouter = Router();
 
-commentRouter.get("/comments", getComments);
-commentRouter.get("/comments/:id", getCommentsById);
-commentRouter.get("/:id/comments", getCommentsByPostId);
-commentRouter.post("/comments", createComment);
-commentRouter.put("/comments/:id", updateComment);
-commentRouter.delete("/comments/:id", deleteComment);
+commentRouter.get("/comments", authMiddleware, getComments);
+commentRouter.get("/comments/:id", authMiddleware, getCommentsById);
+commentRouter.get("/:id/comments", authMiddleware, getCommentsByPostId);
+commentRouter.post("/comments", authMiddleware, createComment);
+commentRouter.put("/comments/:id", authMiddleware, updateComment);
+commentRouter.delete("/comments/:id", authMiddleware, deleteComment);
 
 export default commentRouter;

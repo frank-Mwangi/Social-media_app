@@ -6,13 +6,14 @@ import {
   getPostsById,
   updatePost,
 } from "../controllers/postController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const postRouter = Router();
 
-postRouter.get("/posts", getPosts);
-postRouter.get("/posts/:id", getPostsById);
-postRouter.post("/posts", createPost);
-postRouter.put("/posts/:id", updatePost);
-postRouter.delete("/posts/:id", deletePost);
+postRouter.get("/posts", authMiddleware, getPosts);
+postRouter.get("/posts/:id", authMiddleware, getPostsById);
+postRouter.post("/posts", authMiddleware, createPost);
+postRouter.put("/posts/:id", authMiddleware, updatePost);
+postRouter.delete("/posts/:id", authMiddleware, deletePost);
 
 export default postRouter;

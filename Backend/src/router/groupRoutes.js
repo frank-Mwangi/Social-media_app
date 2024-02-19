@@ -6,12 +6,13 @@ import {
   getGroups,
   updateGroup,
 } from "../controllers/groupController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const groupRoutes = Router();
 
-groupRoutes.get("/groups", getGroups);
-groupRoutes.get("/groups/:id", getGroupById);
-groupRoutes.post("/groups", createGroup);
-groupRoutes.put("/groups/:id", updateGroup);
-groupRoutes.delete("/groups/:id", deleteGroup);
+groupRoutes.get("/groups", authMiddleware, getGroups);
+groupRoutes.get("/groups/:id", authMiddleware, getGroupById);
+groupRoutes.post("/groups", authMiddleware, createGroup);
+groupRoutes.put("/groups/:id", authMiddleware, updateGroup);
+groupRoutes.delete("/groups/:id", authMiddleware, deleteGroup);
 export default groupRoutes;

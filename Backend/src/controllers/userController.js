@@ -9,6 +9,7 @@ import bcrypt from "bcrypt";
 import {
   checkIfValuesIsEmptyNullUndefined,
   notAuthorized,
+  sendBadRequest,
   sendCreated,
   sendDeleteSuccess,
   sendNotFound,
@@ -221,10 +222,15 @@ export const updateUser = async (req, res) => {
         if (Location) {
           user.Location = Location;
         }
-        const updatedUser = await updateUserService(user);
+        try {
+          await updateUserService(user);
+          sendCreated(res, "User updated successfully");
+        } catch (error) {
+          sendBadRequest(res, error);
+        }
+
         //res.status(200).json(updatedUser);
-        console.log(updatedUser);
-        sendCreated(res, "User updated successfully");
+        //console.log(updatedUser);
       } else {
         sendServerError(res, "Please provide a complete field");
       }

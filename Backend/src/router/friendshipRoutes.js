@@ -6,13 +6,14 @@ import {
   getFriendshipById,
   getFriendships,
 } from "../controllers/friendshipController.js";
+import { authMiddleware } from "../middlewares/userAuthMiddleware.js";
 
 const friendshipRouter = Router();
 
-friendshipRouter.get("/friendships", getFriendships);
-friendshipRouter.get("/friendships/:id", getFriendshipById);
-friendshipRouter.get("/friends/:id", getAllFriendsOfAUser);
-friendshipRouter.post("/friendships", createFriendship);
-friendshipRouter.delete("/friendships/:id", deleteFriendship);
+friendshipRouter.get("/friendships", authMiddleware, getFriendships);
+friendshipRouter.get("/friendships/:id", authMiddleware, getFriendshipById);
+friendshipRouter.get("/friends/:id", authMiddleware, getAllFriendsOfAUser);
+friendshipRouter.post("/friendships", authMiddleware, createFriendship);
+friendshipRouter.delete("/friendships/:id", authMiddleware, deleteFriendship);
 
 export default friendshipRouter;

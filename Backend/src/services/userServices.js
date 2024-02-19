@@ -53,8 +53,10 @@ export const updateUserService = async (user) => {
       .query(
         "UPDATE [User] SET Username=@Username, Email=@Email, Password=@Password, TagName=@TagName, Location=@Location WHERE UserID=@UserID"
       );
+    //console.log(result);
     return result;
   } catch (error) {
+    //console.log(error);
     return error;
   }
 };
