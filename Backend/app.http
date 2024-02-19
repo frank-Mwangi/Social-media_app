@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ### Delete a user
-DELETE http://localhost:8000/api/users/1002
+DELETE http://localhost:8000/api/users/1011
 
 ### Get all groups
 GET http://localhost:8000/api/groups

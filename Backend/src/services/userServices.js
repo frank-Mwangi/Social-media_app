@@ -12,6 +12,17 @@ export const getUsersService = async () => {
   }
 };
 
+export const getUsersByEmailService = async (Email) => {
+  try {
+    const result = await poolRequest()
+      .input("Email", sql.VarChar, Email)
+      .query("SELECT * FROM [User] WHERE Email=@Email");
+    return result.recordset;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 export const createUserService = async (newUser) => {
   try {
     const result = await poolRequest()

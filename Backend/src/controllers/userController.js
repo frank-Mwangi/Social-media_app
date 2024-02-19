@@ -18,6 +18,7 @@ import {
   createUserService,
   deleteUserService,
   findByCredentialsService,
+  getUsersByEmailService,
   getUsersService,
   updateUserService,
 } from "../services/userServices.js";
@@ -39,10 +40,10 @@ export const registerUser = async (req, res) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   } else {
-    const users = await getUsersService();
-    const ourUser = users.find((item) => item.Username == Username);
+    const ourUser = await getUsersByEmailService(Email);
+
     if (ourUser) {
-      res.status(400).send("Username already exists");
+      res.status(400).send("User already exists");
     } else {
       try {
         const salt = await bcrypt.genSalt(10);
