@@ -1,5 +1,7 @@
+import bcrypt from "bcrypt";
 import {
   checkIfValuesIsEmptyNullUndefined,
+  notAuthorized,
   sendCreated,
   sendDeleteSuccess,
   sendNotFound,
@@ -8,11 +10,73 @@ import {
 import {
   createUserService,
   deleteUserService,
+  findByCredentialsService,
   getUsersService,
   updateUserService,
 } from "../services/userServices.js";
 
-import { userValidator } from "../validators/userValidator.js";
+import {
+  userLoginValidator,
+  userValidator,
+} from "../validators/userValidator.js";
+
+export const registerUser = async (req, res) => {
+  const { Username, Email, Password, TagName, Location } = req.body;
+  const { error } = userValidator({
+    Username,
+    Email,
+    Password,
+    TagName,
+    Location,
+  });
+  if (error) {
+    return res.status(400).send(error.details[0].message);
+  } else {
+    try {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(Password, salt);
+      console.log(hashedPassword);
+      const newUser = {
+        Username,
+        Email,
+        Password: hashedPassword,
+        TagName,
+        Location,
+      };
+      const response = await createUserService(newUser);
+      if (response.message) {
+        console.log("Error here");
+        sendServerError(res, response.message);
+      } else {
+        sendCreated(res, "User created successfully");
+      }
+    } catch (error) {
+      sendServerError(res, error.message);
+    }
+  }
+};
+
+export const loginUser = async (req, res) => {
+  const { Username, Password } = req.body;
+  const { error } = userLoginValidator({ Username, Password });
+  if (error) {
+    return res.status(400).send(error.details[0].message);
+  } else {
+    try {
+      const userResponse = await findByCredentialsService({
+        Username,
+        Password,
+      });
+      if (userResponse.error) {
+        notAuthorized(res, userResponse.error);
+      } else {
+        res.status(200).send(userResponse);
+      }
+    } catch (error) {
+      sendServerError(res, error.message);
+    }
+  }
+};
 
 export const getUsers = async (req, res) => {
   try {
@@ -51,38 +115,38 @@ export const getUsersById = async (req, res) => {
   }
 };
 
-export const createUser = async (req, res) => {
-  const { Username, Email, Password, TagName, Location } = req.body;
-  const { error } = userValidator({
-    Username,
-    Email,
-    Password,
-    TagName,
-    Location,
-  });
-  if (error) {
-    res.status(400).send(error.details[0].message);
-  } else {
-    try {
-      const newUser = {
-        Username,
-        Email,
-        Password,
-        TagName,
-        Location,
-      };
-      const response = await createUserService(newUser);
-      if (response.message) {
-        sendServerError(res, response.message);
-      } else {
-        sendCreated(res, "User created successfully");
-        // res.status(200).json(newUser);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
+// export const createUser = async (req, res) => {
+//   const { Username, Email, Password, TagName, Location } = req.body;
+//   const { error } = userValidator({
+//     Username,
+//     Email,
+//     Password,
+//     TagName,
+//     Location,
+//   });
+//   if (error) {
+//     res.status(400).send(error.details[0].message);
+//   } else {
+//     try {
+//       const newUser = {
+//         Username,
+//         Email,
+//         Password,
+//         TagName,
+//         Location,
+//       };
+//       const response = await createUserService(newUser);
+//       if (response.message) {
+//         sendServerError(res, response.message);
+//       } else {
+//         sendCreated(res, "User created successfully");
+//         // res.status(200).json(newUser);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+// };
 
 export const updateUser = async (req, res) => {
   try {

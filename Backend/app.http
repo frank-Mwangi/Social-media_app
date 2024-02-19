@@ -14,7 +14,7 @@ GET http://localhost:8000/api/user/5
 
 ### CREATE NEW USER
 
-POST http://localhost:8000/api/users
+POST http://localhost:8000/api/users/
 Content-Type: application/json
 
 {
@@ -273,3 +273,24 @@ Content-Type: application/json
 
 ### Delete event attendee entry
 DELETE http://localhost:8000/api/eventattendees/4/4
+
+### Get Groups 
+GET http://localhost:8000/api/groups
+
+### Get Group by ID
+GET http://localhost:8000/api/groups/2
+
+### Get Member's Groups
+GET http://localhost:8000/api/1/groups
+
+###Create a new groupmember
+POST http://localhost:8000/api/groupmembers
+Content-Type: application/json
+
+{
+    "GroupID": 3,
+    "MemberID": 4
+}
+
+###
+DELETE http://localhost:8000/api/groups/2/3 

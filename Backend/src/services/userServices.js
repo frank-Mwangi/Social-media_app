@@ -1,4 +1,7 @@
 import { poolRequest, sql } from "../utils/dbConnect.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 export const getUsersService = async () => {
   try {
@@ -40,6 +43,41 @@ export const updateUserService = async (user) => {
         "UPDATE [User] SET Username=@Username, Email=@Email, Password=@Password, TagName=@TagName, Location=@Location WHERE UserID=@UserID"
       );
     return result;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const findByCredentialsService = async (user) => {
+  try {
+    const userFoundResponse = await poolRequest()
+      .input("Username", sql.VarChar, user.Username)
+      .query("SELECT * FROM [User] WHERE Username=@Username");
+    if (userFoundResponse.recordset[0]) {
+      if (
+        await bcrypt.compare(
+          user.Password,
+          userFoundResponse.recordset[0].Password
+        )
+      ) {
+        let token = jwt.sign(
+          {
+            id: userFoundResponse.recordset[0].UserID,
+            username: userFoundResponse.recordset[0].Username,
+            email: userFoundResponse.recordset[0].Email,
+          },
+
+          process.env.JWT_SECRET,
+          { expiresIn: "2h" }
+        );
+        const { Password, ...user } = userFoundResponse.recordset[0];
+        return { user, token: `JWT ${token}` };
+      } else {
+        return { error: "Invalid Credentials" };
+      }
+    } else {
+      return { error: "Invalid Credentials" };
+    }
   } catch (error) {
     return error;
   }

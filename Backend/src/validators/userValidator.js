@@ -10,3 +10,11 @@ export const userValidator = (user) => {
   });
   return userValidatorSchema.validate(user);
 };
+
+export const userLoginValidator = (user) => {
+  const userLoginValidatorSchema = joi.object({
+    Username: joi.string().required(),
+    Password: joi.string().min(4).required(),
+  });
+  return userLoginValidatorSchema.validate(user);
+};

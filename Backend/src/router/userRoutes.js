@@ -1,22 +1,22 @@
 import { Router } from "express";
 import {
-  createUser,
+  // createUser,
   deleteUser,
   getUsers,
   getUsersById,
+  loginUser,
+  registerUser,
   updateUser,
 } from "../controllers/userController.js";
 
 const userRouter = Router();
 
+userRouter.post("/user/register", registerUser);
+userRouter.post("/users/auth/login", loginUser);
 userRouter.get("/user", getUsers);
 userRouter.get("/user/:id", getUsersById);
-userRouter.post("/users", createUser);
+// userRouter.post("/users", createUser);
 userRouter.put("/users/:id", updateUser);
 userRouter.delete("/users/:id", deleteUser);
-// userRouter.post("/user/login", logger.info("User login goes here"));
-// userRouter.get("/user/:id", logger.info("Navigate to profile"));
-// userRouter.patch("/user/:id", logger.info("Edit profile"));
-// userRouter.delete("/user/:id", logger.info("delete account"));
 
 export default userRouter;
