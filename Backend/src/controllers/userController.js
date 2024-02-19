@@ -1,3 +1,10 @@
+import express from "express";
+import logger from "../utils/logger.js";
+import nodemailer from "nodemailer";
+import cron from "node-cron";
+import emailTemp from "../../emailTemp.js";
+import dotenv from "dotenv";
+
 import bcrypt from "bcrypt";
 import {
   checkIfValuesIsEmptyNullUndefined,
@@ -32,27 +39,64 @@ export const registerUser = async (req, res) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   } else {
-    try {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(Password, salt);
-      console.log(hashedPassword);
-      const newUser = {
-        Username,
-        Email,
-        Password: hashedPassword,
-        TagName,
-        Location,
-      };
-      const response = await createUserService(newUser);
-      if (response.message) {
-        console.log("Error here");
-        sendServerError(res, response.message);
-      } else {
-        sendCreated(res, "User created successfully");
+    const users = await getUsersService();
+    const ourUser = users.find((item) => item.Username == Username);
+    if (ourUser) {
+      res.status(400).send("Username already exists");
+    } else {
+      try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(Password, salt);
+        console.log(hashedPassword);
+        const newUser = {
+          Username,
+          Email,
+          Password: hashedPassword,
+          TagName,
+          Location,
+        };
+        const response = await createUserService(newUser);
+        if (response.message) {
+          console.log("Error here");
+          sendServerError(res, response.message);
+        } else {
+          sendMail();
+          sendCreated(res, "User created successfully");
+        }
+      } catch (error) {
+        sendServerError(res, error.message);
       }
-    } catch (error) {
-      sendServerError(res, error.message);
     }
+  }
+};
+
+export const sendMail = async (req, res) => {
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: "powaja2892@tupanda.com",
+    subject: "Welcome to Hiphonic",
+    html: emailTemp,
+  };
+  try {
+    logger.info("Sending mail...");
+    await transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        logger.error(error);
+        res.status(500).send(error);
+      } else {
+        logger.info(`Email sent: ${info.response}`);
+        res.status(200).send(info.response);
+      }
+    });
+  } catch (error) {
+    logger.error(error);
   }
 };
 

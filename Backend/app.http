@@ -12,17 +12,26 @@ GET http://localhost:8000/api/user
 
 GET http://localhost:8000/api/user/5
 
-### CREATE NEW USER
+### CREATE/REGISTER NEW USER
 
-POST http://localhost:8000/api/users/
+POST http://localhost:8000/api/user/register
+Content-Type: application/json
+
+{
+    "Username": "NedStark",
+    "Email": "powaja2892@tupanda.com",
+    "Password": "NedStark",
+    "TagName": "Kingshand",
+    "Location": "Winterfell"
+}
+
+### Login a user
+POST http://localhost:8000/api/users/auth/login
 Content-Type: application/json
 
 {
     "Username": "Tyrion404",
-    "Email": "Tyrion@Lannister.com",
-    "Password": "TyrionLannister",
-    "TagName": "Kingshand",
-    "Location": "KingsLanding"
+    "Password": "TyrionLannister"
 }
 
 ### Update a user
