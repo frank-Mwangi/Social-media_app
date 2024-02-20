@@ -44,12 +44,12 @@ Content-Type: application/json
 ### Update a user
 PUT http://localhost:8000/api/users/8
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxOCwidXNlcm5hbWUiOiJzYW0gdGFybHkiLCJlbWFpbCI6Imhhc2FyMjAwNzZAbWFzc2VmbS5jb20iLCJpYXQiOjE3MDgzNjQyNjQsImV4cCI6MTcwODQ1MDY2NH0.IovG5BFoOrXu19xbUqGsgGd2aortQlnAfGaIOe0vEus
+//Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxOCwidXNlcm5hbWUiOiJzYW0gdGFybHkiLCJlbWFpbCI6Imhhc2FyMjAwNzZAbWFzc2VmbS5jb20iLCJpYXQiOjE3MDgzNjQyNjQsImV4cCI6MTcwODQ1MDY2NH0.IovG5BFoOrXu19xbUqGsgGd2aortQlnAfGaIOe0vEus
 
 {
     
     "Username": "Brienne of Tarth",
-    "Email": "hasar20076@massefm.com",
+    "Email": "cacet82731@massefm.com",
     "Password": "Briennetarth00",
     "TagName": "MamaKnight",
     "Location": "Winterfell"

@@ -136,7 +136,7 @@ export const deleteComment = async (req, res) => {
     const id = req.params.id;
     const data = await getCommentsService();
     //console.log(data);
-    const commentToDelete = data.find((item) => (item.CommentID = id));
+    const commentToDelete = data.find((item) => item.CommentID == id);
     //console.log(userToDelete);
     if (!commentToDelete) {
       sendNotFound(res, "Comment not found");

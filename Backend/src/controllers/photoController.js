@@ -115,7 +115,7 @@ export const deletePhoto = async (req, res) => {
     const id = req.params.id;
     const data = await getPhotosService();
     //console.log(data);
-    const photoToDelete = data.find((item) => (item.PhotoID = id));
+    const photoToDelete = data.find((item) => item.PhotoID == id);
     //console.log(userToDelete);
     if (!photoToDelete) {
       sendNotFound(res, "Photo not found");

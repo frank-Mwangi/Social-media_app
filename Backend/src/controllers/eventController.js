@@ -79,7 +79,7 @@ export const createEvent = async (req, res) => {
 export const updateEvent = async (req, res) => {
   try {
     let event = await getEventsByIdService(req.params.id);
-    if (!event) {
+    if (event.length == 0) {
       sendNotFound(res, "Event not found");
     } else {
       if (checkIfValuesIsEmptyNullUndefined(req, res, req.body)) {
@@ -116,7 +116,7 @@ export const deleteEvent = async (req, res) => {
   try {
     const id = req.params.id;
     const eventToDelete = await getEventsByIdService(id);
-    if (!eventToDelete) {
+    if (eventToDelete.length == 0) {
       sendNotFound(res, "Event not found");
     } else {
       await deleteEventService(id);

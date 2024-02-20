@@ -116,7 +116,7 @@ export const deletePost = async (req, res) => {
     const id = req.params.id;
     const data = await getPostsService();
     //console.log(data);
-    const postToDelete = data.find((item) => (item.PostID = id));
+    const postToDelete = data.find((item) => item.PostID == id);
     //console.log(userToDelete);
     if (!postToDelete) {
       sendNotFound(res, "User not found");

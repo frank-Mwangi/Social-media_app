@@ -205,11 +205,20 @@ export const updateUser = async (req, res) => {
     } else {
       if (checkIfValuesIsEmptyNullUndefined(req, res, req.body)) {
         const { Username, Email, Password, TagName, Location } = req.body;
+
+        if (Email) {
+          const emailExists = await getUsersByEmailService(Email);
+          if (emailExists) {
+            res.status(401).json({
+              message: "Email already exists. Please choose another.",
+            });
+            return;
+          } else {
+            user.Email = Email;
+          }
+        }
         if (Username) {
           user.Username = Username;
-        }
-        if (Email) {
-          user.Email = Email;
         }
         if (Password) {
           const salt = await bcrypt.genSalt(10);
@@ -222,12 +231,11 @@ export const updateUser = async (req, res) => {
         if (Location) {
           user.Location = Location;
         }
-        try {
-          await updateUserService(user);
-          sendCreated(res, "User updated successfully");
-        } catch (error) {
-          sendBadRequest(res, error);
-        }
+
+        await updateUserService(user);
+        sendCreated(res, "User updated successfully");
+
+        sendBadRequest(res, error);
 
         //res.status(200).json(updatedUser);
         //console.log(updatedUser);
@@ -245,7 +253,7 @@ export const deleteUser = async (req, res) => {
     const id = req.params.id;
     const data = await getUsersService();
     //console.log(data);
-    const userToDelete = data.find((item) => (item.UserID = id));
+    const userToDelete = data.find((item) => item.UserID == req.params.id);
     //console.log(userToDelete);
     if (!userToDelete) {
       sendNotFound(res, "User not found");

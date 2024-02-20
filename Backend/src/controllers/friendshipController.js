@@ -99,7 +99,7 @@ export const deleteFriendship = async (req, res) => {
     const id = req.params.id;
     const data = await getFriendshipsService();
     //console.log(data);
-    const friendshipToDelete = data.find((item) => (item.FriendshipID = id));
+    const friendshipToDelete = data.find((item) => item.FriendshipID == id);
     //console.log(userToDelete);
     if (!friendshipToDelete) {
       sendNotFound(res, "Friendship not found");
